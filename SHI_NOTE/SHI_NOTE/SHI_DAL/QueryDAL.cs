@@ -15,7 +15,7 @@ namespace SHI_NOTE.SHI_DAL
         /// <typeparam name="T">实体模型</typeparam>
         /// <param name="wherestr">Lambda作为参数</param>
         /// <returns></returns>
-        public T GetModelTowhereExp<T>(Expression<Func<T, bool>> wherestr) where T:class ,new()
+        public static T GetModelTowhereExp<T>(Expression<Func<T, bool>> wherestr) where T:class ,new()
         {
             using (MyDbContext db=new MyDbContext())
             {
@@ -29,7 +29,7 @@ namespace SHI_NOTE.SHI_DAL
         /// <typeparam name="T">实体模型</typeparam>
         /// <param name="sql">sql语句</param>
         /// <returns></returns>
-        public T GetModelTowhereSql<T>(string sql) where T : class, new()
+        public static T GetModelTowhereSql<T>(string sql) where T : class, new()
         {
             using (MyDbContext db = new MyDbContext())
             {
@@ -44,7 +44,7 @@ namespace SHI_NOTE.SHI_DAL
         /// <typeparam name="T">实体模型</typeparam>
         /// <param name="wherestr">Lambda作为参数</param>
         /// <returns></returns>
-        public List<T> GetListTowhereExp<T>(Expression<Func<T, bool>> wherestr) where T : class, new()
+        public static  List<T> GetListTowhereExp<T>(Expression<Func<T, bool>> wherestr) where T : class, new()
         {
             using (MyDbContext db = new MyDbContext())
             {
@@ -58,12 +58,13 @@ namespace SHI_NOTE.SHI_DAL
         /// <typeparam name="T">实体模型</typeparam>
         /// <param name="wherestr">sql 语句</param>
         /// <returns></returns>
-        public List<T> GetListTowhereSql<T>(string sql) where T : class, new()
+        public static List<T> GetListTowhereSql<T>(string sql) where T : class, new()
         {
             using (MyDbContext db = new MyDbContext())
             {
                 return db.Database.SqlQuery<T>(sql).ToList();
             }
         }
+
     }
 }

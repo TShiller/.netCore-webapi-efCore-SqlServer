@@ -16,7 +16,7 @@ namespace SHI_NOTE.SHI_DAL
         /// <typeparam name="T"></typeparam>
         /// <param name="model"></param>
         /// <returns></returns>
-        public bool update_model<T>(T model) where T : class, new() {
+        public static bool update_model<T>(T model) where T : class, new() {
             using (MyDbContext db = new MyDbContext())
             {
                 db.Entry<T>(model).State = EntityState.Modified;
