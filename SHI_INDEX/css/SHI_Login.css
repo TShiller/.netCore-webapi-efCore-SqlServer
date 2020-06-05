@@ -1,0 +1,26 @@
+body{
+	background-image: url(../img/login2.jpg);
+}
+/*表单样式*/
+    .myformdiv {
+        background-color: #b3aeb3;
+        opacity: 0.65;
+    }
+
+    /*垂直居中，div上边界距离窗口上边的距离为窗口高度的50%，
+    实际上此时div内容整体已经偏下，再把整个身子往上移动一半即可
+    并针对不同浏览器进行兼容。
+    */
+    .col-center-block {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+	
+	.myform{
+		
+	}
