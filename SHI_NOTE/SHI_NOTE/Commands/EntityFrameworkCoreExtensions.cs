@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace SHI_NOTE.Commands
     /// </summary>
     public static class EntityFrameworkCoreExtensions
     {
-        private static int CreateCommand(DatabaseFacade facade, string sql, out DbConnection connection, params object[] parameters)
+        private static DbCommand CreateCommand(DatabaseFacade facade, string sql, out DbConnection connection, params object[] parameters)
         {
             var conn = facade.GetDbConnection();
             connection = conn;
@@ -26,8 +27,7 @@ namespace SHI_NOTE.Commands
                 cmd.CommandText = sql;
                 cmd.Parameters.AddRange(parameters);
             }
-            int count = cmd.ExecuteNonQuery();
-            return count;
+            return cmd;
         }
 
         public static DataTable SqlQuery(this DatabaseFacade facade, string sql, params object[] parameters)

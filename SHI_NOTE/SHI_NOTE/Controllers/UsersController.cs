@@ -15,6 +15,10 @@ namespace SHI_NOTE.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
+        [HttpGet]
+        public string ss() {
+            return "ssss";
+        }
         /// <summary>
         /// 用户登录
         /// </summary>
@@ -22,7 +26,7 @@ namespace SHI_NOTE.Controllers
         [HttpPost]
         public ActionResult<object> UserLogin(dynamic user)
         {
-            string uname = user.Name.ToString();//大小写与前端参数一致
+            string uname = user.name.ToString();//大小写与前端参数一致
             string upwd = user.pwd.ToString();
             SHI_Users users = QueryDAL.GetModelTowhereExp<SHI_Users>
                 (u => u.UserEmail == uname && u.UserPwd == upwd);
