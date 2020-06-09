@@ -9,6 +9,7 @@ namespace SHI_NOTE.Models
 {
     public class SHI_Users
     {
+
         [Key] //主键 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  //设置自增
         public int Key_No { get; set; }

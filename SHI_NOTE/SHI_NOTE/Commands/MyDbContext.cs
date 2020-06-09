@@ -21,7 +21,7 @@ namespace SHI_NOTE.Commands
         //重写OnConfiguring方法，配置数据库连接(可选)
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(" Data Source = 127.0.0.1; Initial Catalog = data2; User ID = sa; Password = 123");
+            optionsBuilder.UseSqlServer(" Data Source = 127.0.0.1; Initial Catalog = SHI_NOTE; User ID = sa; Password = 123");
 
         }
     }

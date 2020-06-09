@@ -28,7 +28,8 @@ namespace SHI_NOTE
         {
             services.AddControllers();
             //设置跨域Cores
-            services.AddCors(option => option.AddPolicy("cors", c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
+            services.AddCors(option => option.AddPolicy("cors", 
+                c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
             //添加自定义上下文对象
             services.AddDbContext<MyDbContext>();
         }

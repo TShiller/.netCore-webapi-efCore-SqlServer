@@ -1,4 +1,5 @@
 ﻿using SHI_NOTE.Commands;
+using SHI_NOTE.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,11 @@ namespace SHI_NOTE.SHI_DAL
         /// <typeparam name="T">实体模型</typeparam>
         /// <param name="wherestr">Lambda作为参数</param>
         /// <returns></returns>
-        public static T GetModelTowhereExp<T>(Expression<Func<T, bool>> wherestr) where T:class ,new()
+        public static T GetModelTowhereExp<T>(Expression<Func<T, bool>> wherestr) where T:class,new()
         {
             using (MyDbContext db=new MyDbContext())
             {
-              return  db.Query<T>().Where(wherestr).FirstOrDefault();
+              return  db.Set<T>().Where(wherestr).FirstOrDefault();
             }
         }
 
@@ -48,7 +49,7 @@ namespace SHI_NOTE.SHI_DAL
         {
             using (MyDbContext db = new MyDbContext())
             {
-                return db.Query<T>().Where(wherestr).ToList();
+                return db.Set<T>().Where(wherestr).ToList();
             }
         }
 
