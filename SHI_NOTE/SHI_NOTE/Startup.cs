@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +32,16 @@ namespace SHI_NOTE
             //设置跨域Cores
             services.AddCors(option => option.AddPolicy("cors", 
                 c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
+            //配置swagger
+            services.AddSwaggerGen(c => {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "SHI_NOTE", Version = "v1" });
+
+                var xmlfile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlpath = Path.Combine(AppContext.BaseDirectory, xmlfile);
+                c.IncludeXmlComments(xmlpath);
+
+            }
+            );
             //添加自定义上下文对象
             services.AddDbContext<MyDbContext>();
         }
@@ -52,6 +64,11 @@ namespace SHI_NOTE
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(
+                c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SHI_NOTE")
+                );
         }
     }
 }

@@ -19,9 +19,10 @@ namespace SHI_NOTE.Controllers
     public class UsersController : ControllerBase
     {
         /// <summary>
-        /// 用户登录ActionResult<object>
+        /// 用户登录
         /// </summary>
-        /// <param name="user">动态类型接收</param>
+        /// <param name="jData">动态</param>
+        /// <returns></returns>
         [HttpPost("UserLogin")]
         public string UserLogin(object jData)
         {
