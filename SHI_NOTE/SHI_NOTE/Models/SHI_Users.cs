@@ -21,6 +21,6 @@ namespace SHI_NOTE.Models
         public string UserSign { get; set; }
         public string UserPwd { get; set; }
         public string UserToken { get; set; }
-
+        public DateTime? Token_endtiem { get; set; }
     }
 }

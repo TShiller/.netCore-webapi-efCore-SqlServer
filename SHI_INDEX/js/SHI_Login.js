@@ -1,15 +1,18 @@
-
+var ss;
 //$(document).ready(function(){ 
 $(function() {
 	// 取消form表单默认提交数据的事件
 	$('form').submit(function () {
 		return false;
 	});
-	//密码中必须包含大小写 字母、数字、特称字符，至少8个字符，最多30个字符；
-	var pwdRegex = new RegExp('(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9]).{6,20}');
+	
+	//密码中必须包含字母（区分大小写）、数字，至少8个字符，最多30个字符；
+    var pwdRegex = new RegExp('(?=.*[0-9])(?=.*[a-zA-Z]).{8,30}');
+	
 	//登录按钮点击事件
     $("#mylogin").click(function(){
 		var upwd=$('#UserPwd').val();
+		if(upwd=="")return;
 		  //获取登录信息
 		  var users = {
 					   "UserEmail": $('#UserEmail').val(),
@@ -22,15 +25,90 @@ $(function() {
 			  contentType: "application/json",
 			  data: JSON.stringify(users),
 			  success: function(data){
-				  console.info(data);
+				  if(data!="-1")
+				  {
+					  //保存cookie到浏览器,设置过期时间
+					  var strsec = getsec("h5");
+					  var exp = new Date();
+					  exp.setTime(exp.getTime() + strsec*1);
+					  $.cookie("shi_token", data, { expires: exp, path: '/' });
+				  }
+				  else{
+					  alert("没有此用户信息，请注册！");
+				  }
 			  },
 			  error: function(data){
 				  console.info(data);
-				  alert(data.toString());
 			  }
 		  });
 	});
 
+    //注册按钮点击事件
+	$('#mylogin_up').click(function(){
+		var pwd1=$('#UserPwd_up').val();
+		var email=$('#UserEmail_up').val();
+		var username=$('#UserName_up').val();
+		if(username==""){
+			alert("昵称不能为空！");
+			return;
+		}
+		//比对密码是否输入相同/昵称是否输入
+		if(pwd1!=$('#turePwd_up').val()){
+			alert("请确认密码是否输入一致！");
+			return;
+		}
+		//密码复杂度
+		if(!pwdRegex.test(pwd1)){
+			alert('密码中必须包含字母（区分大小写）、数字，至少8个字符!');
+			return;
+		}
+		//是否邮箱或昵称是否相同
+		var exist_users={
+			'UserEmail':email,
+			'UserName':username,
+		};
+		$.ajax({
+			url:'http://localhost:5782/api/Users/existemailandname',
+			type:'Post',
+			//dataType: 'json',
+			contentType: "application/json",
+			data: JSON.stringify(exist_users),
+			success: function(data){
+				if(data!="0"){
+					alert(data);
+					return;
+				}
+				else{
+					exist_users.UserPwd=md5(pwd1) ,//md5加密密码
+					$.ajax({
+						url:'http://localhost:5782/api/Users/UserSignUp',
+						type:'Post',
+						//dataType: 'json',
+						contentType: "application/json",
+						data: JSON.stringify(exist_users),
+						success: function(data){
+							if(data!="-1"){
+								//保存cookie到浏览器,设置过期时间
+								var strsec = getsec("h5");
+								var exp = new Date();
+								exp.setTime(exp.getTime() + strsec*1);
+								$.cookie("shi_token", data, { expires: exp, path: '/' });
+								//进入主页面
+								
+							}
+							else{
+								
+							}
+						}
+					})
+				}
+			},
+			error:function(data){
+				
+			}
+		})
+	})
+	
     //去注册按钮：切换为注册界面
 	$("#up_show").click(function(){
 		$(".login_in").toggle();
@@ -42,4 +120,21 @@ $(function() {
 		$(".login_in").toggle();
 		$(".login_up").toggle();
 	})
+
+    //这是有设定过期时间的使用示例：
+    //s20是代表20秒
+    //h是指小时，如12小时则是：h12
+    //d是天数，30天则：d30
+    function getsec(str){
+        //alert(str);
+        var str1=str.substring(1,str.length)*1; 
+        var str2=str.substring(0,1); 
+        if (str2=="s"){
+        return str1*1000;
+        }else if (str2=="h"){
+        return str1*60*60*1000;
+        }else if (str2=="d"){
+        return str1*24*60*60*1000;
+        }
+    }
 }); 
