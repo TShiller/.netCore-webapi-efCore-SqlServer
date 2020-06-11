@@ -1,0 +1,5 @@
+*.yml linguist-language=c#
+*.html linguist-language=c#
+*.js linguist-language=c#
+*.xml linguist-language=c#
+*.css linguist-language=c#
