@@ -1,14 +1,23 @@
-var ss;
+//密码中必须包含字母（区分大小写）、数字，至少8个字符，最多30个字符；
+    var pwdRegex = new RegExp('(?=.*[0-9])(?=.*[a-zA-Z]).{8,30}');
+	
 //$(document).ready(function(){ 
 $(function() {
+	//是否有记住账号密码
+	var cookieuser=$.cookie('shi_users');
+	if(cookieuser!=null){
+		var indexs=cookieuser.indexOf('&s00');
+		document.getElementById("UserEmail").value=cookieuser.substring(0,indexs);
+		document.getElementById("UserPwd").value=cookieuser.substring(indexs+4);
+		document.getElementById("mycheck").checked=true;
+	}
 	// 取消form表单默认提交数据的事件
 	$('form').submit(function () {
 		return false;
 	});
 	
-	//密码中必须包含字母（区分大小写）、数字，至少8个字符，最多30个字符；
-    var pwdRegex = new RegExp('(?=.*[0-9])(?=.*[a-zA-Z]).{8,30}');
-	
+}); 
+
 	//登录按钮点击事件
     $("#mylogin").click(function(){
 		var upwd=$('#UserPwd').val();
@@ -27,11 +36,22 @@ $(function() {
 			  success: function(data){
 				  if(data!="-1")
 				  {
+					  //是否选中记住密码
+					  var checks=$('#mycheck').is(':checked');
+					  if(checks==true){
+						  var strsecs = getsec("h10");
+						  var exps = new Date();
+						  exps.setTime(exps.getTime() + strsecs*1);
+						  var usercheck=users.UserEmail+"&s00"+upwd;
+						  $.cookie("shi_users", usercheck, { expires: exps, path: '/' });
+					  }
 					  //保存cookie到浏览器,设置过期时间
 					  var strsec = getsec("h5");
 					  var exp = new Date();
 					  exp.setTime(exp.getTime() + strsec*1);
 					  $.cookie("shi_token", data, { expires: exp, path: '/' });
+					  //跳转主页面
+					   window.location.href='SHI_NodeShow.html';
 				  }
 				  else{
 					  alert("没有此用户信息，请注册！");
@@ -94,10 +114,10 @@ $(function() {
 								exp.setTime(exp.getTime() + strsec*1);
 								$.cookie("shi_token", data, { expires: exp, path: '/' });
 								//进入主页面
-								
+								 window.location.href='SHI_NodeShow.html';
 							}
 							else{
-								
+								alert("由于服务器延迟，注册失败，请重新注册！谢谢");
 							}
 						}
 					})
@@ -137,4 +157,3 @@ $(function() {
         return str1*24*60*60*1000;
         }
     }
-}); 
