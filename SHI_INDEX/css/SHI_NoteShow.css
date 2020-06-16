@@ -1,6 +1,4 @@
-
-i{color: #1E9FFF;}
- #hender{
+#hender{
 	background-color: #83a5ee;
 	width: 100%;
 	height: 3.5rem;
@@ -73,4 +71,39 @@ i{color: #1E9FFF;}
 }
 #geren:hover #erji{
 	display: block;
+}
+#addword{
+	width: 100%;
+	height: 70px;
+	overflow: hidden;
+}
+#addword ul{
+	height:70px ;
+	line-height: 70px;
+	margin-left: 25%;
+}
+#addword ul:hover #newnode{
+	color: #007DDB;
+	cursor:pointer;
+}
+#wenjian div:hover{
+	background-color: #c5c8ff;
+}
+#wenjian div ul li{
+	font-size: 14px;
+	font-family: sans-serif;
+}
+#addword ul li,#changyong ul li,#pwdmange ul li,#shoucang ul li,#Myflie ul li{
+	float: left;
+}
+#changyong,#pwdmange,#shoucang,#Myflie{
+	width: 100%;
+	height: 40px;
+	/* background-color: #896bff; */
+}
+#changyong ul,#pwdmange ul,#shoucang ul,#Myflie ul{
+	height: 40px;
+	line-height: 40px;
+	margin-left: 18%;
+	overflow: hidden;
 }

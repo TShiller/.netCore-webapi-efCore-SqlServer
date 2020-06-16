@@ -6,7 +6,7 @@
 		<meta name="renderer" content="webkit">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/layui.css" rel="stylesheet" />
+		<link href="layui/css/layui.css" rel="stylesheet" />
 		<link href="css/SHI_NoteShow.css" rel="stylesheet" />
 	</head>
 	<body>
@@ -57,14 +57,62 @@
 				<div style="width: 100%;">
 					<!-- 左导航 -->
 					<div id="zuodaohang">
-					  <div>
-						   <i class="layui-icon">&#xe60c;</i> 
+					  <!-- <div style="width:100%;overflow: hidden;text-align: center; ">
+						<a href="#"><i class="layui-icon" style="font-size: 20px;;">&#xe668;</i> </a>
+					  </div> -->
+					  <!-- 新建笔记 -->
+					  <div id="addword">
+						  <ul>
+							  <li><i class="layui-icon" style="font-size: 30px; margin-right: 5px;color: #1E9FFF;">&#xe624;</i></li>
+							  <li id="newnode">新建笔记</li>
+						  </ul>
 					  </div>
+					  <div style="height:1px;width: 100%;background-color: white;"></div>
+					  <!-- 常用文档 -->
+					  <div id="wenjian"> 
+						  <div id="changyong">
+							  <ul>
+								  <li><i class="layui-icon" style="font-size: 20px; margin-right: 8px;color:#95999C;">&#xe663;</i></li>
+								  <li>常用文档</li>
+							  </ul>
+						  </div>
+						  <!-- 云密码管理 -->
+						  <div id="pwdmange">
+							  <ul>
+								  <li><i class="layui-icon" style="font-size: 20px; margin-right: 8px;color:#95999C;">&#xe673;</i></li>
+								  <li>云密码管理</li>
+							  </ul>
+						  </div>
+						  <!-- 收藏文档 -->
+						 <div id="shoucang">
+							  <ul>
+								  <li><i class="layui-icon" style="font-size: 20px; margin-right: 8px;color:#95999C;">&#xe658;</i></li>
+								  <li>云密码管理</li>
+							  </ul>
+						  </div>
+						  <!-- 我的文件夹 -->
+						  <div id="Myflie">
+							  <ul>
+								  <li><i class="layui-icon" style="font-size: 20px; margin-right: 8px;color:#95999C;">&#xe60a;</i></li>
+								  <li>我的文件夹</li>
+							  </ul>
+						   </div>
+						  <!-- 回收站 -->
+						  <div id="recyclebin">
+							  <ul>
+								  <li><i class="layui-icon" style="font-size: 20px; margin-right: 8px;color:#95999C;">&#xe63e;</i></li>
+								  <li>回收站</li>
+							  </ul>
+						   </div>
+						  <!-- 分享文件 -->
+					  </div>
+					  
+					  
 					</div>
 					<div class="fenge"></div>
 					<!-- 列表 -->
 					<div id="zuoliebiao">
-					  <div >zuo列表</div>
+					  <div ></div>
 					</div>
 					<div class="fenge"></div>
 					<!-- 文本编辑区域 -->
