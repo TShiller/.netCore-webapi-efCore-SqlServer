@@ -21,7 +21,10 @@ $(function() {
 	//登录按钮点击事件
     $("#mylogin").click(function(){
 		var upwd=$('#UserPwd').val();
-		if(upwd=="")return;
+		if(upwd==""){
+			document.getElementById('msgs').innerHTML="请输入密码！";
+			$('#window').removeAttr('hidden');
+			return;}
 		  //获取登录信息
 		  var users = {
 					   "UserEmail": $('#UserEmail').val(),
@@ -54,7 +57,9 @@ $(function() {
 					   window.location.href='SHI_NodeShow.html';
 				  }
 				  else{
-					  alert("没有此用户信息，请注册！");
+					  document.getElementById('msgs').innerHTML="没有此用户信息，请注册！";
+					  $('#window').removeAttr('hidden');
+					  //alert("没有此用户信息，请注册！");
 				  }
 			  },
 			  error: function(data){
@@ -69,17 +74,20 @@ $(function() {
 		var email=$('#UserEmail_up').val();
 		var username=$('#UserName_up').val();
 		if(username==""){
-			alert("昵称不能为空！");
+			document.getElementById('msgs').innerHTML="昵称不能为空！";
+			$('#window').removeAttr('hidden');
 			return;
 		}
 		//比对密码是否输入相同/昵称是否输入
 		if(pwd1!=$('#turePwd_up').val()){
-			alert("请确认密码是否输入一致！");
+			document.getElementById('msgs').innerHTML="请确认密码是否输入一致！";
+			$('#window').removeAttr('hidden');
 			return;
 		}
 		//密码复杂度
 		if(!pwdRegex.test(pwd1)){
-			alert('密码中必须包含字母（区分大小写）、数字，至少8个字符!');
+			document.getElementById('msgs').innerHTML="密码中必须包含字母（区分大小写）、数字，至少8个字符!";
+			$('#window').removeAttr('hidden');
 			return;
 		}
 		//是否邮箱或昵称是否相同
@@ -117,7 +125,8 @@ $(function() {
 								 window.location.href='SHI_NodeShow.html';
 							}
 							else{
-								alert("由于服务器延迟，注册失败，请重新注册！谢谢");
+								document.getElementById('msgs').innerHTML="由于服务器延迟，注册失败，请重新注册！谢谢";
+								$('#window').removeAttr('hidden');
 							}
 						}
 					})
@@ -141,6 +150,14 @@ $(function() {
 		$(".login_up").toggle();
 	})
 
+    $('#btn_ok').click(function(){
+		$('#window').attr('hidden','hidden');
+		//一些操作
+	})
+	//取消
+	$('#btn_cancel').click(function(){
+		$('#window').attr('hidden','hidden');
+	})
     //这是有设定过期时间的使用示例：
     //s20是代表20秒
     //h是指小时，如12小时则是：h12

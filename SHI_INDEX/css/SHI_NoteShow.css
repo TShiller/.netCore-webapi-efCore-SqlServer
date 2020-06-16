@@ -1,0 +1,76 @@
+
+i{color: #1E9FFF;}
+ #hender{
+	background-color: #83a5ee;
+	width: 100%;
+	height: 3.5rem;
+	overflow: hidden
+}
+#zuodaohang{
+	background-color: #f5f5f5;
+	width: 15%;
+	float: left;
+	border-right: 1px solid #C2C2C2;
+}
+#zuoliebiao{
+	background-color: #ffffff;
+	width: 20%;
+	float: left;
+	border-right: 1px solid #C2C2C2;
+}
+#edits{
+	background-color: #E8E8E8;
+	width: 64%;
+	float: left;
+}
+#imglogo{
+	float: left;
+	width:14%;
+	height:3.5rem;
+	line-height: 3.5rem;
+	text-align: center;
+}
+#header_right{
+	width: 50%;
+	float: right;
+	height:3.5rem;
+	line-height: 3.5rem;
+}
+#header_right li{
+	float: right;
+	height:3.5rem;
+	line-height: 3.5rem;
+}
+#header_right li a{
+	color: #EEEEEE;
+}
+.fengexian{
+	 margin: 0 1rem;
+	 color: #2f67e9;
+}
+#header_right li ul{
+	position: absolute;
+	margin-right: 8%;
+	text-align: center;
+	/* border: 1px solid #066591; */
+	border-top: none;
+	background-color: white;
+	border-top: 6px solid #889dea;
+	display: none;
+}
+#header_right li ul li{
+	height:1.8rem;
+	line-height: 1.8rem;
+}
+#header_right li ul li a{
+	color: #95999C;
+}
+#header_right li ul li:hover{
+	background-color: #D9EDF7;
+}
+#header_right li ul li:hover a{
+	color: #9FCDFF;
+}
+#geren:hover #erji{
+	display: block;
+}
