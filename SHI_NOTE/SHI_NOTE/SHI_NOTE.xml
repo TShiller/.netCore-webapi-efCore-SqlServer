@@ -10,16 +10,6 @@
             </summary>
         </member>
         <!-- Badly formed XML comment ignored for member "M:SHI_NOTE.Commands.MD5Encryption.Md5_32(System.String)" -->
-        <member name="T:SHI_NOTE.Commands.MyDbContext">
-            <summary>
-            自定义上下文对象:MyDbContext
-            </summary>
-        </member>
-        <member name="P:SHI_NOTE.Commands.MyDbContext.SHI_Users">
-            <summary>
-            用户信息
-            </summary>
-        </member>
         <member name="M:SHI_NOTE.Controllers.UsersController.UserLogin(System.Object)">
             <summary>
             用户登录
@@ -40,6 +30,51 @@
             </summary>
             <param name="users"></param>
             <returns></returns>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.KeyNo">
+            <summary>
+            自增主键用户编号
+            </summary>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.Account">
+            <summary>
+            系统账号：自动生成不可修改
+            </summary>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.UserEmail">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.UserName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.UserSex">
+            <summary>
+            0代表男，1代表女，2代表私密（默认为私密）
+            </summary>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.UserImg">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.UserSign">
+            <summary>
+            个人签名
+            </summary>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.UserPwd">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.TokenEndtiem">
+            <summary>
+            token到期时间
+            </summary>
         </member>
         <member name="M:SHI_NOTE.SHI_DAL.InsertDAL.InsertModel``1(``0)">
              <summary>

@@ -131,3 +131,4 @@ E:\【Work】\WEBAPI-CORE-EF-CORE\SHI_NOTE\SHI_NOTE\bin\Debug\netcoreapp3.1\Swas
 E:\【Work】\WEBAPI-CORE-EF-CORE\SHI_NOTE\SHI_NOTE\obj\Debug\netcoreapp3.1\SHI_NOTE.MvcApplicationPartsAssemblyInfo.cs
 E:\【Work】\WEBAPI-CORE-EF-CORE\SHI_NOTE\SHI_NOTE\obj\Debug\netcoreapp3.1\SHI_NOTE.MvcApplicationPartsAssemblyInfo.cache
 E:\【Work】\WEBAPI-CORE-EF-CORE\SHI_NOTE\SHI_NOTE\bin\Debug\netcoreapp3.1\SHI_NOTE.xml
+E:\【Work】\WEBAPI-CORE-EF-CORE\SHI_NOTE\SHI_NOTE\bin\Debug\netcoreapp3.1\efpt.config.json

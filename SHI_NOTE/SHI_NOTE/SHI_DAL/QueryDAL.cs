@@ -18,7 +18,7 @@ namespace SHI_NOTE.SHI_DAL
         /// <returns></returns>
         public static T GetModelTowhereExp<T>(Expression<Func<T, bool>> wherestr) where T:class,new()
         {
-            using (MyDbContext db=new MyDbContext())
+            using (MyDbContexts db=new MyDbContexts())
             {
               return  db.Set<T>().Where(wherestr).FirstOrDefault();
             }
@@ -32,7 +32,7 @@ namespace SHI_NOTE.SHI_DAL
         /// <returns></returns>
         public static T GetModelTowhereSql<T>(string sql) where T : class, new()
         {
-            using (MyDbContext db = new MyDbContext())
+            using (MyDbContexts db = new MyDbContexts())
             {
                 return db.Database.SqlQuery<T>(sql).FirstOrDefault();
             }
@@ -47,7 +47,7 @@ namespace SHI_NOTE.SHI_DAL
         /// <returns></returns>
         public static  List<T> GetListTowhereExp<T>(Expression<Func<T, bool>> wherestr) where T : class, new()
         {
-            using (MyDbContext db = new MyDbContext())
+            using (MyDbContexts db = new MyDbContexts())
             {
                 return db.Set<T>().Where(wherestr).ToList();
             }
@@ -61,7 +61,7 @@ namespace SHI_NOTE.SHI_DAL
         /// <returns></returns>
         public static List<T> GetListTowhereSql<T>(string sql) where T : class, new()
         {
-            using (MyDbContext db = new MyDbContext())
+            using (MyDbContexts db = new MyDbContexts())
             {
                 return db.Database.SqlQuery<T>(sql).ToList();
             }

@@ -43,7 +43,7 @@ namespace SHI_NOTE
             }
             );
             //添加自定义上下文对象
-            services.AddDbContext<MyDbContext>();
+            services.AddDbContext<MyDbContexts>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

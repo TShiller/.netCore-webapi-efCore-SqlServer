@@ -31,16 +31,16 @@ namespace SHI_NOTE.Controllers
             JToken juser_email = t.SelectToken("UserEmail");//UserEmail与前端保持一致
             JToken juser_pwd = t.SelectToken("UserPwd");
 
-            SHI_Users users = QueryDAL.GetModelTowhereExp<SHI_Users>
+            ShiUsers users = QueryDAL.GetModelTowhereExp<ShiUsers>
                 (u => u.UserEmail == juser_email.ToString() && u.UserPwd == juser_pwd.ToString());
             if (users != null)
             {
                 //创建token：根据用户名+时间通过MD5加密后保证唯一性
                 DateTime gettime = DateTime.Now;
                 users.UserToken = MD5Encryption.Md5_32(juser_email.ToString() + gettime.ToString());
-                users.Token_endtiem = gettime;
+                users.TokenEndtiem = gettime;
                 //更新到数据库，登录成功后每次访问数据都带上token
-                UpdateDAL.update_model<SHI_Users>(users);
+                UpdateDAL.update_model<ShiUsers>(users);
                 return  users.UserToken;
                         
             }
@@ -60,10 +60,10 @@ namespace SHI_NOTE.Controllers
             string upwd = jdata.SelectToken("UserPwd").ToString();//密码
             string uname = jdata.SelectToken("UserName").ToString();//昵称
             //获取默认账号和用户名
-            int account = QueryDAL.GetModelTowhereSql<SHI_Users>
-                ("select top 1 * from SHI_Users order by Key_No desc").Key_No;
+            int account = QueryDAL.GetModelTowhereSql<ShiUsers>
+                ("select top 1 * from ShiUsers order by Key_No desc").KeyNo;
             string uaccname = "shi00"+(account + 1); 
-            SHI_Users users = new SHI_Users();
+            ShiUsers users = new ShiUsers();
             users.UserEmail = uemail;
             users.UserPwd = upwd;
             users.UserName = uname;
@@ -72,8 +72,8 @@ namespace SHI_NOTE.Controllers
             //创建token：根据用户名+时间通过MD5加密后保证唯一性
             DateTime gettime = DateTime.Now;
             users.UserToken = MD5Encryption.Md5_32(uname.ToString() + gettime.ToString());
-            users.Token_endtiem = gettime;
-            if (InsertDAL.InsertModel<SHI_Users>(users))
+            users.TokenEndtiem = gettime;
+            if (InsertDAL.InsertModel<ShiUsers>(users))
             {
                 return users.UserToken;
             }
@@ -91,7 +91,7 @@ namespace SHI_NOTE.Controllers
             string email = jdata.SelectToken("UserEmail").ToString();
             string uname = jdata.SelectToken("UserName").ToString();
             //查询是否存在
-            SHI_Users exuser = QueryDAL.GetModelTowhereExp<SHI_Users>(u => u.UserEmail == email || u.UserName == uname);
+            ShiUsers exuser = QueryDAL.GetModelTowhereExp<ShiUsers>(u => u.UserEmail == email || u.UserName == uname);
             if (exuser!=null)
             {
                 if (exuser.UserName==uname)

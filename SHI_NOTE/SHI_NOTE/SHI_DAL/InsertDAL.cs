@@ -16,7 +16,7 @@ namespace SHI_NOTE.SHI_DAL
         /// <param name="model"></param>
         /// <returns></returns>
         public static bool InsertModel<T>(T model) where T : class, new() {
-            using (MyDbContext db = new MyDbContext())
+            using (MyDbContexts db = new MyDbContexts())
             {
                 db.Entry<T>(model).State = EntityState.Added;
                 return db.SaveChanges() > 0;

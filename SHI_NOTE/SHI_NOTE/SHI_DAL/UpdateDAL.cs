@@ -17,7 +17,7 @@ namespace SHI_NOTE.SHI_DAL
         /// <param name="model"></param>
         /// <returns></returns>
         public static bool update_model<T>(T model) where T : class, new() {
-            using (MyDbContext db = new MyDbContext())
+            using (MyDbContexts db = new MyDbContexts())
             {
                 db.Entry<T>(model).State = EntityState.Modified;
                 return  db.SaveChanges()>0;
