@@ -87,14 +87,19 @@
 								  <li>收藏文档</li>
 							  </ul>
 						  </div>
+						  
 						  <!-- 我的文件夹 -->
 						  <div id="Myflie" class="xuanxian">
 							  <ul>
 								  <li><i class="layui-icon" style="font-size: 20px; margin-right: 8px;color:#95999C;">&#xe60a;</i></li>
 								  <li>我的文件夹</li>
-								  <li><i class="layui-icon" style="font-size: 15px;margin-left: 10px; color:#95999C;">&#xe623;</i></li>
+								  <li>
+									  <i id="fileicon_in2" class="layui-icon" style="font-size: 15px;margin-left: 10px; color:#95999C;">&#xe623;</i>
+								      <i id="fileicon_in1" class="layui-icon" style="font-size: 15px;margin-left: 10px; color:#95999C;display: none;">&#xe625;</i>
+								  </li>
 							  </ul>
 						   </div>
+						   <div id="testtree"></div>
 						  <!-- 回收站 -->
 						  <div id="recyclebin" class="xuanxian">
 							  <ul>
@@ -132,7 +137,7 @@
 		      </div>
 
 		<script src="js/jquery-3.3.1.min.js"></script>
-		<script src="js/layui.js"></script>
+		<script src="layui/layui.js"></script>
 		<script src="js/jquery.cookie.js"></script>
 		<script src="js/SHI_NodeShow.js"></script>
 	</body>

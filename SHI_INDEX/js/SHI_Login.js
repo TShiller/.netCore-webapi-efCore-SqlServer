@@ -57,7 +57,7 @@ $(function() {
 					   window.location.href='SHI_NodeShow.html';
 				  }
 				  else{
-					  document.getElementById('msgs').innerHTML="没有此用户信息，请注册！";
+					  document.getElementById('msgs').innerHTML="登录失败，请重新输入！";
 					  $('#window').removeAttr('hidden');
 					  //alert("没有此用户信息，请注册！");
 				  }
@@ -103,7 +103,8 @@ $(function() {
 			data: JSON.stringify(exist_users),
 			success: function(data){
 				if(data!="0"){
-					alert(data);
+					document.getElementById('msgs').innerHTML=data;
+					$('#window').removeAttr('hidden');
 					return;
 				}
 				else{

@@ -89,9 +89,12 @@ body{
 	color: #007DDB;
 	cursor:pointer;
 }
-#wenjian div:hover{
+#wenjian .xuanxian:hover{
 	background-color: #c5c8ff;
 	cursor:pointer;
+}
+#wenjian{
+	overflow: hidden;
 }
 #wenjian div ul li{
 	font-size: 14px;
@@ -118,4 +121,11 @@ body{
 	position: absolute;
 	bottom: 0;
 	left: 0;
+}
+#testtree{
+	width: 100%;
+	margin-left: 19%;
+	overflow: hidden;
+	margin-bottom: 15px;
+	display: none;
 }
