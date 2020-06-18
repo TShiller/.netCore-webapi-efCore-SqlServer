@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SHI_NOTE</name>
+    </assembly>
+    <members>
+        <member name="T:SHI_NOTE.Commands.EntityFrameworkCoreExtensions">
+            <summary>
+            自定义封装SqlQuery方法，执行SQL语句
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SHI_NOTE.Commands.MD5Encryption.Md5_32(System.String)" -->
+        <member name="M:SHI_NOTE.Controllers.UsersController.UserLogin(System.Object)">
+            <summary>
+            用户登录
+            </summary>
+            <param name="jData">动态</param>
+            <returns></returns>
+        </member>
+        <member name="M:SHI_NOTE.Controllers.UsersController.UserSignUp(System.Object)">
+            <summary>
+            用户注册
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SHI_NOTE.Controllers.UsersController.existemailandname(System.Object)">
+            <summary>
+            判断邮箱或昵称是否存在
+            </summary>
+            <param name="users"></param>
+            <returns></returns>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.KeyNo">
+            <summary>
+            自增主键用户编号
+            </summary>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.Account">
+            <summary>
+            系统账号：自动生成不可修改
+            </summary>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.UserEmail">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.UserName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.UserSex">
+            <summary>
+            0代表男，1代表女，2代表私密（默认为私密）
+            </summary>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.UserImg">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.UserSign">
+            <summary>
+            个人签名
+            </summary>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.UserPwd">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:SHI_NOTE.Models.ShiUsers.TokenEndtiem">
+            <summary>
+            token到期时间
+            </summary>
+        </member>
+        <member name="M:SHI_NOTE.SHI_DAL.InsertDAL.InsertModel``1(``0)">
+             <summary>
+            根据模型进行添加
+             </summary>
+             <typeparam name="T"></typeparam>
+             <param name="model"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SHI_NOTE.SHI_DAL.QueryDAL.GetModelTowhereExp``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            通过Lambda作为参数传递，返回查询出的模型数据
+            </summary>
+            <typeparam name="T">实体模型</typeparam>
+            <param name="wherestr">Lambda作为参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:SHI_NOTE.SHI_DAL.QueryDAL.GetModelTowhereSql``1(System.String)">
+            <summary>
+            通过sql语句作为参数传递，返回查询出的模型数据
+            </summary>
+            <typeparam name="T">实体模型</typeparam>
+            <param name="sql">sql语句</param>
+            <returns></returns>
+        </member>
+        <member name="M:SHI_NOTE.SHI_DAL.QueryDAL.GetListTowhereExp``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            通过Lambda作为参数传递，返回集合
+            </summary>
+            <typeparam name="T">实体模型</typeparam>
+            <param name="wherestr">Lambda作为参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:SHI_NOTE.SHI_DAL.QueryDAL.GetListTowhereSql``1(System.String)">
+            <summary>
+            通过sql语句作为参数传递，返回集合
+            </summary>
+            <typeparam name="T">实体模型</typeparam>
+            <param name="wherestr">sql 语句</param>
+            <returns></returns>
+        </member>
+        <member name="M:SHI_NOTE.SHI_DAL.UpdateDAL.update_model``1(``0)">
+            <summary>
+            根据实体模型修改
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
