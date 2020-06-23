@@ -8,6 +8,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="layui/css/layui.css" rel="stylesheet" />
 		<link href="css/SHI_NoteShow.css" rel="stylesheet" />
+		
 	</head>
 	<body>
 		  <div  style="width: 100%;">
@@ -161,15 +162,29 @@
 					<div class="fenge"></div>
 					<!-- 文本编辑区域 -->
 					<div id="edits">
-					  <div>
-						  
-					  </div>
+						  <div id="edit_title">
+							  <input type="text"  id="wordtitle"/>
+							  <input type="button" class="layui-btn layui-btn-primary" value="保存" id="btnword"/>
+							  <button type="button" class="layui-btn layui-btn-sm layui-btn-primary" style="border: none;padding: 0;">
+							    <i class="layui-icon">&#xe64c;</i>分享
+							  </button>
+							  <button type="button" class="layui-btn layui-btn-sm layui-btn-primary" style="border: none;padding: 0;">
+							    <i class="layui-icon">&#xe67a;</i>收藏
+							  </button>
+							  <button type="button" class="layui-btn layui-btn-sm layui-btn-primary" style="border: none;padding: 0;">
+							    <i class="layui-icon">&#xe66d;</i>打印
+							  </button>
+							  
+						  </div>
+						  <div style="height:1px;width: 100%;background-color:#e1e1e1"></div>
+						 <textarea style="height: 85%;">Next, use our Get Started docs to setupsdafds</textarea> 
 					</div>
 				</div>
 		      </div>
 
 		<script src="js/jquery-3.3.1.min.js"></script>
 		<script src="layui/layui.js"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/tinymce/5.3.2/tinymce.min.js" referrerpolicy="origin"></script>
 		<script src="js/jquery.cookie.js"></script>
 		<script src="js/SHI_NodeShow.js"></script>
 	</body>

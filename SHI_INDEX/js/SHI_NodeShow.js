@@ -14,15 +14,11 @@ $(function(){
 	$('#erji li').width($('#geren').width());
 	
 	//初始化编辑器
-	                 editor = new wangEditor("txtdiv");
-	                 editor.create();
-	                 
-	                 //内容修改事件，此处做的是实时展示实际效果
-	                 editor.onchange = function(){
-	                    //获取editor的html值
-	                     var html = editor.$txt.html();
-	                     $("#show_box").html(html)
-	                 }
+	tinymce.init({
+			selector: 'textarea',
+			height: this.height,
+			width:this.width,
+		  })
 })
 
 //收缩左导航
@@ -32,10 +28,12 @@ $('#shousuo').click(function(){
 	if($('#zuodaohang').width()<50){
 		$('#zuodaohang').width('17%');
 		$('#shousuo').width('17%');
+		$('#edits').width('62%');
 	}
 	else{
 		$('#zuodaohang').width(40);
 		$('#shousuo').width(40);
+		$('#edits').width('75%');
 	}
 })
 
