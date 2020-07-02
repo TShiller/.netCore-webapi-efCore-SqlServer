@@ -3,7 +3,7 @@ $(function(){
     var cookies=$.cookie('shi_token');
 	if(cookies==null){
 		//window.history.back(-1);//返回上一页
-		window.location.href='SHI_Login.html';
+		//window.location.href='SHI_Login.html';
 	}
 	var screenHeight=$(window).height();//获取屏幕高度
 	var heights=screenHeight-56;//减去导航的高度
@@ -34,6 +34,7 @@ $('#shousuo').click(function(){
 		$('#zuodaohang').width(40);
 		$('#shousuo').width(40);
 		$('#edits').width('75%');
+		$('#treelists').css("display","none");
 	}
 })
 
@@ -51,12 +52,26 @@ $('#addword').click(function(){
 	  }
 	  ,btn2: function(index, layero){
 	    //按钮【按钮二】的回调
-	    
-	    //return false 开启该代码可禁止点击该按钮关闭
+	    layer.close(index);
+		//创建文件夹
+		var zidiv= $("<div class=\"testtree\"></div>");
+		var ziul=$("<ul></ul>");
+		var zili1= $("<li></li>");
+		var zili2= $("<li></li>");
+		var zii=$("<i class=\"layui-icon\">&#xe60a;</i>");
+		var ziinput=$("<input id=\"txtdocument_input\" type=\"text\" value=\"新建文件夹\" />");
+		zili1.append(zii);
+		zili2.append(ziinput);
+		ziul.append(zili1);
+		ziul.append(zili2);
+		zidiv.append(ziul);
+		$('#treelists').css("display","block");
+		$('#treelists').append(zidiv);
+		document.getElementById('txtdocument_input').focus();
 	  }
 	  ,btn3: function(index, layero){
 	    //按钮【按钮三】的回调
-	    //layer.alert('新建模板笔记暂未对普通会员开放！', {icon: 1});
+	    layer.alert('新建模板笔记暂未对普通会员开放！', {icon: 1});
 	  }
 	  ,cancel: function(){ 
 	    //右上角关闭回调
@@ -64,6 +79,14 @@ $('#addword').click(function(){
 	  }
 	});
 })
+
+// 新建文件夹失去焦点
+$(document).on('blur', '#txtdocument_input', function () {
+  $("#txtdocument_input").attr("class",'txtdocument');
+  $("#txtdocument_input").attr("readonly",'readonly');
+  $("#txtdocument_input").RemoveAttr('id');
+});
+
 
 //常用文档点击事件
 $('#changyong').click(function(){
@@ -74,6 +97,8 @@ $('#changyong').click(function(){
 	$("#changyong").css("color","white");
 	// layer.alert('酷毙了', {icon: 1});
 })
+
+
 
 //云密码管理点击事件
 $('#pwdmange').click(function(){
@@ -102,7 +127,7 @@ $('#Myflie').click(function(){
 	$("#Myflie").css("color","white");
 	//菜单显示：左导航没有收缩时
 	if($('#zuodaohang').width()>50){
-		$('#testtree').toggle();
+		$('#treelists').toggle();
 		$('#fileicon_in1').toggle();
 		$('#fileicon_in2').toggle();
 	}
@@ -136,27 +161,27 @@ function returnxuanxiancolor(){
 	
 
 // 加载树形菜单
-layui.use('tree', function(){
-    var tree = layui.tree;
+// layui.use('tree', function(){
+//     var tree = layui.tree;
    
-    //渲染
-    var inst1 = tree.render({
-      elem: '#testtree'  //绑定元素
-	  ,edit: ['update'] //操作节点的图标
-      ,data: [{
-        title: '江西' //一级菜单
-        ,children: [{
-          title: '南昌' //二级菜单
-          ,children: [{
-            title: '高新区' //三级菜单
-            //…… //以此类推，可无限层级
-          }]
-        }]
-      },{
-        title: '陕西' //一级菜单
-        ,children: [{
-          title: '西安' //二级菜单
-        }]
-      }]
-    });
-  });
+//     //渲染
+//     var inst1 = tree.render({
+//       elem: '#testtree'  //绑定元素
+// 	  ,edit: ['update'] //操作节点的图标
+//       ,data: [{
+//         title: '江西' //一级菜单
+//         ,children: [{
+//           title: '南昌' //二级菜单
+//           ,children: [{
+//             title: '高新区' //三级菜单
+//             //…… //以此类推，可无限层级
+//           }]
+//         }]
+//       },{
+//         title: '陕西' //一级菜单
+//         ,children: [{
+//           title: '西安' //二级菜单
+//         }]
+//       }]
+//     });
+//   });
